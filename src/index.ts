@@ -176,8 +176,10 @@ export const clientCredential = (options: ClientCredentialOptions) => {
 
           const tenantId = msOptions.tenantId;
 
+          // The Microsoft token endpoint requires application/x-www-form-urlencoded.
           const { error, data } = await $fetch("@post/token", {
             baseURL: `https://login.microsoftonline.com/${tenantId}/oauth2/v2.0`,
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: {
               tenant: tenantId,
               client_id: msOptions.clientId,
