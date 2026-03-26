@@ -36,7 +36,7 @@ const msSocialProviderConfigSchema = z.object({
   clientSecret: z.string(),
 });
 
-const CLIENT_CREDENTIAL_ERRORS = defineErrorCodes({
+export const CLIENT_CREDENTIAL_ERRORS = defineErrorCodes({
   MICROSOFT_PROVIDER_NOT_CONFIGURED:
     "Microsoft social provider is not configured",
   MICROSOFT_PROVIDER_INVALID_CONFIG:
