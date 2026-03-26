@@ -20,6 +20,13 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+    "better-auth",
+    "better-fetch",
+    "Microsoft",
+    "Entra ID",
+    "Client Credential"
+  ],
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",
