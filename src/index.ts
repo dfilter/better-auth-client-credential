@@ -188,6 +188,8 @@ export type ClientCredential = {
  *   message for debugging.
  */
 export const clientCredential = (options: ClientCredentialOptions) => {
+  const PROVIDER_ID = "microsoft";
+
   const $fetch = createFetch({
     defaultError: defaultErrorSchema,
     schema: createSchema({
@@ -248,7 +250,7 @@ export const clientCredential = (options: ClientCredentialOptions) => {
         }) => {
           const scope = options[applicationName]?.scope.join(" ");
           if (!scope) {
-            throw APIError.fromStatus(
+            throw APIError.from(
               "NOT_FOUND",
               CLIENT_CREDENTIAL_ERRORS.MICROSOFT_APPLICATION_NOT_FOUND,
             );
@@ -277,7 +279,7 @@ export const clientCredential = (options: ClientCredentialOptions) => {
           }
 
           const oAuthProvider = socialProviders.find(
-            ({ id }) => id === "microsoft",
+            ({ id }) => id === PROVIDER_ID,
           );
 
           if (!oAuthProvider?.options) {
